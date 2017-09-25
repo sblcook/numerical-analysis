@@ -55,16 +55,16 @@ for i=1:n
    
 end
 
-aSingDiff = abs(aSingRev - aSing);
+aSingDiff = single(abs(aSingRev - aSing));
 aDubDiff = abs(aDubRev - aDub);
 
-bSingDiff = abs(bSingRev - bSing);
+bSingDiff = single(abs(bSingRev - bSing));
 bDubDiff = abs(bDubRev - bDub);
 
-cSingDiff = abs(cSingRev - cSing);
+cSingDiff = single(abs(cSingRev - cSing));
 cDubDiff = abs(cDubRev - cDub);
 
-dSingDiff = abs(dSingRev - dSing);
+dSingDiff = single(abs(dSingRev - dSing));
 dDubDiff = abs(dDubRev - dDub);
 
 
