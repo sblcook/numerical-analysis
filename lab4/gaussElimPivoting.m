@@ -1,4 +1,4 @@
-function U=gaussElimPartialPivoting(M)
+function U=gaussElimPivoting(M)
 % gaussian elimination with full pivoting
 [m,n] = size(M);
 k=1;
@@ -15,10 +15,7 @@ while (j <= m) && (k <= n)
         
     elseif (max(a) > 0) && (M(j,k) == 0)  %need to deal with case that entry in the pivot position is zero
         b=M(j:end,k); %set b to be portion of k-th column below (and including) (j,k) position
-        [~,indices] = max(b); %finds max value in vector b, adds it to indices vector
-        idx = indices(1); %selects first index of max value
-        
-        
+        idx=find(b~=0,1); %selects first index for which entry under pivot position (j,k) is non-zero
         idx=idx+j-1; %reindex to get correct index for full j-th column
         
         %swap rows to get rid of zero in pivot position
