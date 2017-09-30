@@ -4,6 +4,7 @@ function U=gaussElimPivoting(M)
 k=1;
 j=1;
 
+M
 while (j <= m) && (k <= n)
    
     a=abs(M(j:end,k)); %find absolute value below the pivot position
@@ -24,6 +25,7 @@ while (j <= m) && (k <= n)
         M(idx,:) = swap;
     end
     
+    M
     for i = j+1:m
         M(i,:) = M(i,:) - (M(i,k)/M(j,k))*M(j,:); % perform type III operations 
         M %print M to show intermediate steps
