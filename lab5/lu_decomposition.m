@@ -1,6 +1,6 @@
 function [L, U] = lu_decomposition(A)
+% standard LU decomposition
 
-% gaussian elimination with full pivoting
 [m,n] = size(A);
 L = eye(m);
 U = A;
