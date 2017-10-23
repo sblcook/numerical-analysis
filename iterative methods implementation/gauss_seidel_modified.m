@@ -1,6 +1,6 @@
 % gauss-seidel iteration
 
-function [x,k] = gauss_seidel_modified(A,b,numIterations,x0)
+function [x] = gauss_seidel_modified(A,b,numIterations,x0)
     % decompose A into sum of L,U
     U = triu(A,1);
     L = tril(A,0);

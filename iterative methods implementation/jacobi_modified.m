@@ -1,7 +1,7 @@
 % jacobi method solved with numIterations number of iterations, given a
 % matrix A, vector b, initial solution x0, and the number of iterations
 
-function [x,k] = jacobi_modified(A,b,numIterations,x0)
+function [x] = jacobi_modified(A,b,numIterations,x0)
     % decompose A into sum of D,R
    
     D = diag(diag(A));
