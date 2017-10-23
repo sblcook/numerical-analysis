@@ -18,4 +18,6 @@ x0(1:199) = 0;
 %ensure x is column vector
 x0 = x0(:);
 
-[x, k] = jacobi_modified(A, b, 10000, x0)
+numIterations = 10000;
+%[x, k] = jacobi_modified(A, b, numIterations, x0);
+[x, k] = gauss_seidel_modified(A, b, numIterations, x0);
