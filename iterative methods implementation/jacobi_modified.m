@@ -1,7 +1,7 @@
 % jacobi method solved with numIterations number of iterations, given a
 % matrix A, vector b, initial solution x0, and the number of iterations
 
-function [x] = jacobi_modified(A,b,numIterations,x0)
+function [x, error] = jacobi_modified(A,b,numIterations,x0)
     % decompose A into sum of D,R
    
     D = diag(diag(A));
@@ -26,11 +26,11 @@ function [x] = jacobi_modified(A,b,numIterations,x0)
     
     
     x = [1;x;1];
-    z = (-1:.01:1)';
  
     %solve and plot the solution on z
     f = @(x) uSol(x);
-    plot(z, x);
+    z = (-1:.01:1)';
+    error = norm((f(z) - x), 2)
 
     
 end

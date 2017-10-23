@@ -1,6 +1,6 @@
 % gauss-seidel iteration
 
-function [x] = gauss_seidel_modified(A,b,numIterations,x0)
+function [x, error] = gauss_seidel_modified(A,b,numIterations,x0)
     % decompose A into sum of L,U
     U = triu(A,1);
     L = tril(A,0);
@@ -27,6 +27,7 @@ function [x] = gauss_seidel_modified(A,b,numIterations,x0)
  
     %solve and plot the solution on z
     f = @(x) uSol(x);
+    error = norm((f(z) - x), 2)
     plot(z, x);
     
 end

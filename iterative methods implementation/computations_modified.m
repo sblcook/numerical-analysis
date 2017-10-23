@@ -19,5 +19,8 @@ x0(1:199) = 0;
 x0 = x0(:);
 
 numIterations = 10000;
-%[x, k] = jacobi_modified(A, b, numIterations, x0);
-[x, k] = gauss_seidel_modified(A, b, numIterations, x0);
+[x, xError] = jacobi_modified(A, b, numIterations, x0);
+[y, yError] = gauss_seidel_modified(A, b, numIterations, x0);
+
+z = (-1:.01:1)';
+plot(z, x);
