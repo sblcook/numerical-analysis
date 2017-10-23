@@ -9,7 +9,9 @@ A = zeros(199) + diag(-2*ones(199,1),0) + diag(ones(198,1), -1) + diag(ones(198,
 b(1:199) = .0001;
 b(1) = -.9999;
 b(199) = -.9999;
+b = b(:);
 
 x0(1:199) = 0;
+x0 = x0(:);
 
-[x, k] = jacobi_modified(A, b, 50000, x0)
+[x, k] = jacobi_modified(A, b, 10000, x0)

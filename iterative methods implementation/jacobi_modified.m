@@ -7,13 +7,14 @@ function [x,k] = jacobi_modified(A,b,numIterations,x0)
     R = A - D;
     D_i = inv(D);
     norm(D_i*R);
+    
     syms u(x)
     ode = diff(u,x,2) == 1
     cond1 = u(1) == 1;
     cond2 = u(-1) == 1;
     uSol(x) = dsolve(ode, [cond1 cond2]);
     
-    
+ 
 
     % do first iteration
     x = D_i*(b-R*x0);
