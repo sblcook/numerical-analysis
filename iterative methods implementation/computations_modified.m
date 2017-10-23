@@ -23,4 +23,3 @@ numIterations = 10000;
 [y, yError] = gauss_seidel_modified(A, b, numIterations, x0);
 
 z = (-1:.01:1)';
-plot(z, x);

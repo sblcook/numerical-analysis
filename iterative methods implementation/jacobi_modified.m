@@ -10,7 +10,7 @@ function [x, error] = jacobi_modified(A,b,numIterations,x0)
     
     %solve given differential equation u''(x) = 1 with initial conditions
     syms u(x)
-    ode = diff(u,x,2) == 1
+    ode = diff(u,x,2) == 1;
     cond1 = u(1) == 1;
     cond2 = u(-1) == 1;
     uSol(x) = dsolve(ode, [cond1 cond2]);
@@ -28,9 +28,8 @@ function [x, error] = jacobi_modified(A,b,numIterations,x0)
     x = [1;x;1];
  
     %solve and plot the solution on z
-    f = @(x) uSol(x);
     z = (-1:.01:1)';
-    error = norm((f(z) - x), 2)
+    error = norm((uSol(z) - x), 2)
 
     
 end
