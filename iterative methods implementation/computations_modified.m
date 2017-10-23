@@ -6,12 +6,16 @@ v1(1:199) = -2;
 v2(1:198) = 1;  
 A = zeros(199) + diag(-2*ones(199,1),0) + diag(ones(198,1), -1) + diag(ones(198,1), 1);
 
+%create 199x1 vector with specific values
 b(1:199) = .0001;
 b(1) = -.9999;
 b(199) = -.9999;
+%ensure b is column vector
 b = b(:);
 
+%set initial solution x0
 x0(1:199) = 0;
+%ensure x is column vector
 x0 = x0(:);
 
 [x, k] = jacobi_modified(A, b, 10000, x0)
