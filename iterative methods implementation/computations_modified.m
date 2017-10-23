@@ -34,6 +34,8 @@ end
 
 %plot the error vs the numbr of iterations
 numIterations = (1:howMany);
-plot(numIterations, Xerror, numIterations, Yerror)
-%semilogy(numIterations, Xerror, numIterations, Yerror)
-
+semilogy(numIterations, Xerror, numIterations, Yerror)
+%Based on graph, we can tell that the Gauss-Seidel method is better.
+%The smallest error on the graph for Gauss-Seidel is approx 10^-4,
+%vs approx 10^-2 for Jacobi, so Gauss-Seidel could possibly be twice
+%as good (it is more accurate)
