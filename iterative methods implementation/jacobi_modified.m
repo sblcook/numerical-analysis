@@ -23,13 +23,15 @@ function [x, error] = jacobi_modified(A,b,numIterations,x0)
         x1 = D_i*(b-R*x);
         x = x1;
     end
-    
-    
-    x = [1;x;1];
  
     %solve and plot the solution on z
+    x = [1;x;1];
+    
+    %plot(z, x);
+    
+    %calculate the error
     z = (-1:.01:1)';
-    error = norm((uSol(z) - x), 2)
+    error = norm((uSol(z) - x), 2);
 
     
 end

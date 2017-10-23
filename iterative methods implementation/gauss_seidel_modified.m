@@ -22,12 +22,14 @@ function [x, error] = gauss_seidel_modified(A,b,numIterations,x0)
         x = x1;
     end
     
-    x = [1;x;1];
-    z = (-1:.01:1)';
- 
     %solve and plot the solution on z
-    f = @(x) uSol(x);
-    error = norm((uSol(z) - x), 2)
-    plot(z, x);
+    x = [1;x;1];
+    %z = (-1:.01:1)';
+    %plot(z, x);
+
+    %calculate error
+    z = (-1:.01:1)';
+    error = norm((uSol(z) - x), 2);
+     
     
 end

@@ -18,8 +18,20 @@ x0(1:199) = 0;
 %ensure x is column vector
 x0 = x0(:);
 
-numIterations = 10000;
-[x, xError] = jacobi_modified(A, b, numIterations, x0);
-[y, yError] = gauss_seidel_modified(A, b, numIterations, x0);
+%create vector for error
+Xerror = zeros(10,1);
+Yerror = zeros(10,1);
 
-z = (-1:.01:1)';
+%approximate x and calculate error based on number of iterations from 1 to
+%50,000 iterations
+for numIterations = 1:100
+    [x, xError] = jacobi_modified(A, b, numIterations * 500, x0);
+    [y, yError] = gauss_seidel_modified(A, b, numIterations * 500, x0);
+    Xerror(numIterations) = xError;
+    Yerror(numIterations) = yError;
+end
+
+%plot the error vs the numbr of iterations
+plot(numIterations, Xerror, numIterations, Yerror)
+semilogy(numIterations, Xerror, numIterations, Yerror)
+
