@@ -1,6 +1,6 @@
 % gauss-seidel iteration
 
-function [x,k] = gauss_seidel(A,b,e,x0)
+function [x,k] = gauss_seidel_modified(A,b,numIterations,x0)
     % decompose A into sum of L,U
     U = triu(A,1)
     L = tril(A,0)
@@ -14,7 +14,7 @@ function [x,k] = gauss_seidel(A,b,e,x0)
     
     % do iteration
     k = 1;
-    while (res > e)
+    for k = 1:numIterations
         x1 = L_i*(b-U*x);
         res = max(abs(x1-x));
         x = x1;
