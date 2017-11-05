@@ -7,6 +7,8 @@ function [F,spA]=generate_2d_poisson_FD_matrix_and_RHS(m)
 % This system of equations is then solved using backslash.
 % 
 % From  http://www.amath.washington.edu/~rjl/fdmbook/chapter3  (2007)
+%
+%m = 19 and 99
 
 format long
 
@@ -31,7 +33,7 @@ f = @(x,y) 0*x + 1;        %1.25*exp(x+y/2);         % f(x,y) function
 rhs = f(Xint,Yint);       % evaluate f at interior points for right hand side
                            % rhs is modified below for boundary conditions.
 
-utrue = .25*X.^2+Y.^2;        % true solution for test problem
+utrue = .25*X.^2+.25*Y.^2;        % true solution for test problem
 
 % set boundary conditions around edges of usoln array:
 
