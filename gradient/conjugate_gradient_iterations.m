@@ -18,7 +18,6 @@ for i = 0:N
     B = (r_new'*r_new)/(r_old'*r_old); %new B
     d = r_new + B*d; %new direction
     r_old = r_new; %update the residual
-    N = N+1; %increment number of iterations
 end
 
 end
