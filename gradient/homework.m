@@ -21,4 +21,14 @@ x1_0 = ones([m, 1]);
 [cg1_error] = conjugate_gradient_iterations(A1, -b1, x1_0, max(N,N1), x1);
 [g1_error] = gradient_iterations(A1, -b1, x1_0, max(M, M1), y1);
 
+x_scale = 1:max(N, N1);
+y_scale = 1:max(M, M1);
+
+figure()
+    semilogy(y_scale, g_error, y_scale, g1_error)
+figure()
+    semilogy(x_scale, cg_error, x_scale, cg1_error)
+
+
+
 
