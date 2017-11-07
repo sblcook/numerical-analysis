@@ -24,6 +24,8 @@ x1_0 = ones([m, 1]);
 x_scale = 1:max(N, M);
 y_scale = 1:max(N1, M1);
 
+%as shown by the grpahs, conjugate gradient converges much quicker than
+%regular gradient method
 figure()
     semilogy(x_scale, g_error, x_scale, cg_error)
 figure()
