@@ -22,7 +22,7 @@ x1_0 = ones([m, 1]);
 [g1_error] = gradient_iterations(A1, -b1, x1_0, max(N1, M1), y1);
 
 x_scale = 1:max(N, M);
-y_scale = 1:100:max(N1, M1);
+y_scale = 1:max(N1, M1);
 
 figure()
     semilogy(x_scale, g_error, x_scale, cg_error)
