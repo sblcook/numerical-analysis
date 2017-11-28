@@ -19,8 +19,18 @@ errorBM = bisection_method_error(f, e, max, a, b, exact);
 [exact, req_iter] = newtons_method(f, fprime, e, x0, max, a, b);
 errorNM = newtons_method_error(f, fprime, e, x0, max, a, b, exact);
 
-semilogy(xaxis, errorRF, xaxis, errorBM, xaxis, errorNM);
-loglog(xaxis, errorRF, xaxis, errorBM, xaxis, errorNM);
+figure()
+    semilogy(xaxis, errorRF, xaxis, errorBM, xaxis, errorNM);
+    title('Number of Iterations vs Relative Error, f(x) = cos(2*x)^2 - x^2, semilogy')
+    xlabel('Number of Iterations')
+    ylabel('Relative Error')
+    legend('Regula Falsi', 'Bisection', 'Newton')
+figure()
+    loglog(xaxis, errorRF, xaxis, errorBM, xaxis, errorNM);
+    title('Number of Iterations vs Relative Error, f(x) = cos(2*x)^2 - x^2, loglog')
+    xlabel('Number of Iterations')
+    ylabel('Relative Error')
+    legend('Regula Falsi', 'Bisection', 'Newton')
 %From the graphs, we can see that Newton's converges quadratically, Regula
 %Falsi converges linearly, and Bisection converges linearly, but at a
 %slower rate than Regula Falsi
@@ -28,8 +38,17 @@ loglog(xaxis, errorRF, xaxis, errorBM, xaxis, errorNM);
 %----part D----
 [exact, req_iter] = newtons_method(f, fprime, e, x0, max, a, b);
 errorNM2 = newtons_method_modified(f, fprime, e, x0, max, a, b, exact);
-semilogy(xaxis, errorNM2);
-loglog(xaxis, errorNM2);
+figure()
+    semilogy(xaxis, errorNM2);
+    title('Number of Iterations vs Relative Error, modified Newton''s Method, semilogy')
+    xlabel('Number of Iterations')
+    ylabel('Relative Error')
+figure()
+    loglog(xaxis, errorNM2);
+    title('Number of Iterations vs Relative Error, modified Newton''s Method, loglog')
+    xlabel('Number of Iterations')
+    ylabel('Relative Error')
+%This method with the modified update does not converge at all
 %--------------
 
 g = @(x) x*(1-cos(x));
@@ -47,7 +66,17 @@ errorBM1 = bisection_method_error(g, e, max, a, b, exact);
 [exact, req_iter] = newtons_method(g, gprime, e, x0, max, a, b);
 errorNM1 = newtons_method_error(g, gprime, e, x0, max, a, b, exact);
 
-semilogy(xaxis, errorRF1, xaxis, errorBM1, xaxis, errorNM1);
-loglog(xaxis, errorRF1, xaxis, errorBM1, xaxis, errorNM1);
+figure()
+    semilogy(xaxis, errorRF1, xaxis, errorBM1, xaxis, errorNM1);
+    title('Number of Iterations vs Relative Error, g(x) = x*(1-cos(x)), semilogy')
+    xlabel('Number of Iterations')
+    ylabel('Relative Error')
+    legend('Regula Falsi', 'Bisection', 'Newton')
+figure()
+    loglog(xaxis, errorRF1, xaxis, errorBM1, xaxis, errorNM1);
+    title('Number of Iterations vs Relative Error, g(x) = x*(1-cos(x)), loglog')
+    xlabel('Number of Iterations')
+    ylabel('Relative Error')
+    legend('Regula Falsi', 'Bisection', 'Newton')
 %This time, the error converges to zero much more slowly due to the larger
 %range of possible values
