@@ -13,7 +13,7 @@ while (abs(b-a) >= e) && (req_iter < max_iter)
     fb = f(b);
     fmid = f((b+a)/2);
     x = (b+a)/2;
-    error(req_iter) = abs(x - correct);
+    error(req_iter) = abs(x - correct)/abs(correct);
     if fmid * fb < 0 %root in right half
         a = x;
     elseif fmid * fa < 0 %root in left half

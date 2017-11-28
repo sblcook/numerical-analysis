@@ -10,7 +10,7 @@ error = zeros(max_iter, 1);
 while (abs(f(x)) > e) && (req_iter < max_iter)
     x = x - (f(x)/fprime(x));
     req_iter = req_iter + 1;
-    error(req_iter) = abs(x - correct);
+    error(req_iter) = abs(x - correct)/abs(correct);
 end
 
 end

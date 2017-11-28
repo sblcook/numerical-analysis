@@ -13,7 +13,7 @@ while (abs(b-a) >= e) && (req_iter < max_iter)
     fa = f(a);
     fb = f(b);
     x = b - ((fb*(b-a))/(fb-fa));
-    error(req_iter) = abs(correct - x); %calculate and save the error
+    error(req_iter) = abs(correct - x)/abs(correct); %calculate and save the error
     if f(x) * fb < 0 %root in right half
         a = x;
     elseif f(x) * fa < 0 %root in left half
