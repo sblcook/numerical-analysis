@@ -7,8 +7,8 @@ a = 0;
 b = 1.5;
 x0 = 0.75;
 e = 10e-10;
-max = 40;
-xaxis = [1:max]';
+max = 100;
+xaxis = (1:max)';
 
 [exact, req_iter] = regula_falsi(f, e, max, a, b);
 errorRF = regula_falsi_error(f, e, max, a, b, exact);
@@ -24,6 +24,13 @@ loglog(xaxis, errorRF, xaxis, errorBM, xaxis, errorNM);
 %From the graphs, we can see that Newton's converges quadratically, Regula
 %Falsi converges linearly, and Bisection converges linearly, but at a
 %slower rate than Regula Falsi
+
+%----part D----
+[exact, req_iter] = newtons_method(f, fprime, e, x0, max, a, b);
+errorNM2 = newtons_method_modified(f, fprime, e, x0, max, a, b, exact);
+semilogy(xaxis, errorNM2);
+loglog(xaxis, errorNM2);
+%--------------
 
 g = @(x) x*(1-cos(x));
 gprime = @(x) x*sin(x) - cos(x) + 1;
