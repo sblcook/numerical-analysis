@@ -3,7 +3,7 @@ function [error] = newtons_system_error(F, jacobian, x0, n, exact)
 e = 10e-6;
 i = 0;
 x = x0;
-error = zeros(n, 1)   
+error = zeros(n, 1);
 
 while i < n
     i = i+1;
